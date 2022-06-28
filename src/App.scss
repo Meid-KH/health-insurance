@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		@apply selection:bg-gray-900 selection:text-gray-100;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		// @apply font-heading;
+	}
+	li {
+		@apply list-none;
+	}
+	svg {
+		@apply max-w-full;
+	}
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="number"],
+	input[type="url"],
+	input[type="date"],
+	input[type="datetime-local"],
+	input[type="month"],
+	input[type="week"],
+	input[type="time"],
+	input[type="search"],
+	input[type="tel"],
+	select,
+	select[multiple],
+	textarea {
+		@apply w-full py-3 px-4 h-[64px] text-gray-700 bg-white placeholder:text-sm placeholder:text-gray-400/80 placeholder:tracking-wide
+           rounded-lg border-2 border-gray-300/70
+         hover:border-gray-300
+         focus:border-gray-900 focus:ring-0;
+	}
+	textarea {
+		@apply h-auto;
+	}
+	input[type="checkbox"],
+	input[type="radio"] {
+		@apply w-5 h-5 border-2 border-gray-300 text-blue-500;
+	}
+	input[type="checkbox"] {
+		@apply rounded;
+	}
+}
+body {
+	@apply bg-gray-200 font-inter font-medium;
+}
+.app {
+	// background-color: red;
+	@apply min-h-screen;
+}
+.button {
+	@apply uppercase tracking-wide font-semibold w-full px-6 py-5 leading-6 text-center text-white rounded-lg ring-offset-2 bg-gradient-to-tl from-gray-600 to-gray-900 hover:from-gray-900 hover:to-gray-600 focus:ring-2 focus:ring-gray-900;
+	&--primary {
+		@apply bg-blue-500 bg-gradient-to-tl from-blue-800 to-blue-500 hover:from-blue-500 hover:to-blue-800 focus:ring-2 focus:ring-blue-500;
+	}
+	&[disabled] {
+		@apply opacity-60 cursor-not-allowed blur-[.85px];
+	}
+}
+
+/* Forms */
+.form {
+	&__group {
+		@apply relative space-y-1.5 leading-none;
+	}
+	&__label {
+		@apply block text-sm font-medium tracking-wide text-gray-600;
+	}
+}
+.fieldset {
+	@apply relative px-6 py-6 pt-5 mt-3 border rounded-lg;
+	@apply lg:px-10 lg:py-8 lg:pt-10 border-gray-300/70;
+	&:not(:first-child) {
+		@apply mt-12;
+	}
+	&__title {
+		@apply absolute top-0 px-4 mb-4 text-sm font-medium tracking-wide text-gray-500 uppercase -translate-y-1/2 bg-white rounded-full left-5;
+	}
+}
+/* alerts */
+.alert {
+	@apply text-sm p-4 text-center border-2 rounded-lg;
+	&--danger {
+		@apply text-red-600 border-2 border-red-500 bg-red-50;
+	}
+	&--info {
+		@apply text-blue-600 border-2 border-blue-500 bg-blue-50;
+	}
+	&--success {
+		@apply text-green-600 border-2 border-green-500 bg-green-50;
+	}
+	&--warning {
+		@apply text-yellow-600 border-2 border-yellow-500 bg-yellow-50;
+	}
+}
