@@ -14,7 +14,8 @@ type Types = {
 // };
 
 const Item = ({ title, variant }: Types) => {
-	// const date: Date = new Date();
+	// const date = Date.now();
+
 	return (
 		<Fieldset
 			title={title}
@@ -25,11 +26,9 @@ const Item = ({ title, variant }: Types) => {
         bg-white border border-current text-xs py-1 
         tracking-wider font-medium rounded-full"
 		>
-			{/* Action buttons */}
-			<ActionButtons />
-
+			<ActionButtons openModal={() => console.log("open modal")} />
 			<div className="space-y-4">
-				<Date date={"12/12/1995"} />
+				<Date date={"02/14/1995"} />
 				<Form />
 			</div>
 		</Fieldset>
@@ -37,6 +36,8 @@ const Item = ({ title, variant }: Types) => {
 };
 
 const Date = ({ date }: any) => {
+	console.log(date);
+
 	return (
 		<p className="text-sm font-medium">
 			Date de naissance : <span className="font-semibold">{date}</span>
@@ -55,22 +56,21 @@ const Form = () => {
 	);
 };
 
-const ActionButtons = () => {
+const ActionButtons = ({ openModal }: any) => {
 	return (
-		<div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 flex flex-col gap-2">
+		<div className="flex justify-end gap-2 -mt-4">
 			<button
-				type="button"
-				className="w-9 h-9 p-1.5 border-2 border-current text-gray-600 bg-white rounded-full 
-                  scale-95 transition-all hover:blue-red-500 hover:scale-100"
+				className="flex justify-center items-center uppercase tracking-wide font-semibold gap-3 
+        py-1 px-4 border-2 border-current text-xs text-current bg-white rounded-full hover:bg-gray-50 transition active:scale-95"
+				onClick={openModal}
 			>
-				<Icon name="edit" />
+				Mettre à jour <Icon name="edit" className="w-5" />
 			</button>
 			<button
-				type="button"
-				className="w-9 h-9 p-1.5 border-2 border-current text-gray-600 bg-white rounded-full 
-                 scale-95 transition-all hover:text-red-500 hover:scale-100"
+				className="flex justify-center items-center uppercase tracking-wide font-semibold gap-3 
+        py-1 px-4 border-2 border-current text-xs text-red-400 bg-white rounded-full hover:bg-gray-50 transition active:scale-95"
 			>
-				<Icon name="cancel" />
+				Supprimer <Icon name="trash" className="w-5" />
 			</button>
 		</div>
 	);
